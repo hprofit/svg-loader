@@ -8,12 +8,12 @@ module.exports = function (config) {
             'dist/libs.js',
             'svg-render.js',
             'test/spec/*.js',
-            '*.html'
+            'exampleSvg.html'
         ],
 
         preprocessors: {
             'svg-render.js': 'coverage',
-            '*.html': ['ng-html2js']
+            'exampleSvg.html': ['ng-html2js']
         },
 
         ngHtml2JsPreprocessor: {

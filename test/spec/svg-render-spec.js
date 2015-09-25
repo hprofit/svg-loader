@@ -7,7 +7,7 @@ describe('SvgRender Directives', function () {
         var service;
 
         beforeEach(function () {
-            module('svgRender.ui.svgRender');
+            module('ui.svgRender');
         });
 
         beforeEach(function () {
@@ -79,7 +79,7 @@ describe('SvgRender Directives', function () {
         beforeEach(function () {
             module('test.ui.templates');
 
-            module('svgRender.ui.svgRender', function ($provide) {
+            module('ui.svgRender', function ($provide) {
                 $provide.decorator('svgRenderFileService', function ($delegate) {
                     $delegate.path = jasmine.createSpy();
                     return $delegate;
@@ -147,7 +147,7 @@ describe('SvgRender Directives', function () {
         beforeEach(function () {
             module('test.ui.templates');
 
-            module('svgRender.ui.svgRender', function ($provide) {
+            module('ui.svgRender', function ($provide) {
                 $provide.decorator('svgRenderFileService', function ($delegate) {
                     $delegate.path = jasmine.createSpy();
                     return $delegate;

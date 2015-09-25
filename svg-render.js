@@ -1,5 +1,8 @@
 (function (ng) {
-    ng.module('svgRender.ui.svgRender', [])
+    ng.module('ui.svgRender', [])
+        .run(["$templateCache", function ($templateCache) {
+            $templateCache.put("noFileFound.html", "<span>No file found!</span>");
+        }])
         .factory('svgRenderFileService', [
             function () {
                 var _baseDirectory = "",
