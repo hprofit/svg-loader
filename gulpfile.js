@@ -1,16 +1,13 @@
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     concat = require('gulp-concat'),
-    Server = require('karma').Server,
-    templateCache = require('gulp-angular-templatecache');
+    Server = require('karma').Server;
 
 var PROJ_ROOT = '',
     BOWER_COMP_ROOT = PROJ_ROOT + 'bower_components',
     SCRIPTS_ROOT = PROJ_ROOT,
-    TEMPLATES_ROOT = PROJ_ROOT,
     TESTS_ROOT = PROJ_ROOT + 'test/spec',
     DIST_ROOT = PROJ_ROOT + 'dist';
-
 
 var libs = [
         BOWER_COMP_ROOT + '/angular/angular.js',
@@ -20,10 +17,7 @@ var libs = [
         TESTS_ROOT + '/**/*.js'
     ],
     scripts = [
-        SCRIPTS_ROOT + 'svgRender.js'
-    ],
-    templates = [
-        TEMPLATES_ROOT + 'noFileFound.html'
+        SCRIPTS_ROOT + 'svg-render.js'
     ];
 
 /**
@@ -47,12 +41,6 @@ gulp.task('lint', function () {
 gulp.task('libs', function () {
     return gulp.src(libs)
         .pipe(concat('libs.js'))
-        .pipe(gulp.dest(DIST_ROOT));
-});
-
-gulp.task('templates', function () {
-    return gulp.src(templates)
-        .pipe(templateCache('test-templates.js', {module: 'test.ui.templates', standalone: true}))
         .pipe(gulp.dest(DIST_ROOT));
 });
 

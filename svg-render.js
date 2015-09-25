@@ -3,6 +3,33 @@
         .run(["$templateCache", function ($templateCache) {
             $templateCache.put("noFileFound.html", "<span>No file found!</span>");
         }])
+        .provider('svgRenderFile', function () {
+            return {
+                _baseDirectory: "",
+                _templates: {},
+                setBaseDirectory: function (baseDir) {
+                    this._baseDirectory = baseDir;
+                },
+                getBaseDirectory: function () {
+                    return this._baseDirectory;
+                },
+                setTemplates: function (newTemplates) {
+                    this._templates = newTemplates;
+                },
+                getTemplates: function () {
+                    return this._templates;
+                },
+                getTemplate: function (template) {
+                    return this._templates[template];
+                },
+                addTemplate: function (name, url) {
+                    this._templates[name] = this._baseDirectory + url;
+                },
+                $get: function () {
+                    return this;
+                }
+            };
+        })
         .factory('svgRenderFileService', [
             function () {
                 var _baseDirectory = "",

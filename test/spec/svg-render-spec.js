@@ -1,6 +1,82 @@
 describe('SvgRender Directives', function () {
     'use strict';
 
+    describe('SvgRenderFileProvider', function () {
+        'use strict';
+
+        var provider;
+
+        beforeEach(function () {
+            // Initialize the service provider
+            // by injecting it to a fake module's config block
+            var fakeModule = angular.module('test.app.config', function () {});
+            fakeModule.config( function (svgRenderFileProvider) {
+                provider = svgRenderFileProvider;
+            });
+            // Initialize test.app injector
+            module('ui.svgRender', 'test.app.config');
+
+            // Kickstart the injectors previously registered
+            // with calls to angular.mock.module
+            inject(function () {});
+        });
+
+        it('Should have a _baseDirectory and _template field', function () {
+            expect(provider._baseDirectory).toEqual("");
+            expect(provider._templates).toEqual({});
+        });
+
+        it('Should return the _baseDirectory', function () {
+            expect(provider.getBaseDirectory()).toEqual("");
+        });
+
+        it('Should set the _baseDirectory', function () {
+            var url = 'base/directory/here';
+
+            provider.setBaseDirectory(url);
+
+            expect(provider._baseDirectory).toEqual(url);
+        });
+
+        it('Should return the _templates object', function () {
+            expect(provider.getTemplates()).toEqual({});
+        });
+
+        it('Should set the _templates object', function () {
+            var templates = {
+                "icon": "some/dir/here.html"
+            };
+
+            provider.setTemplates(templates);
+
+            expect(provider._templates).toEqual(templates);
+        });
+
+        it('Should return a template url', function () {
+            var templates = {
+                "icon": "some/dir/here.html"
+            };
+
+            provider.setTemplates(templates);
+
+            expect(provider.getTemplate("icon")).toEqual(templates.icon);
+        });
+
+        it('Should add a template to the _templates object', function () {
+            var templates = {
+                "icon": "some/dir/here.html"
+            };
+
+            provider.addTemplate("icon", templates.icon);
+
+            expect(provider._templates.icon).toEqual(templates.icon);
+        });
+
+        it('Should have a $get method that returns the svgRenderFileProvider', function () {
+            expect(provider.$get()).toEqual(provider);
+        });
+    });
+
     describe('SvgRenderFileService', function () {
         'use strict';
 
