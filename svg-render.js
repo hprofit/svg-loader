@@ -30,45 +30,6 @@
                 }
             };
         })
-        .factory('svgRenderFileService', [
-            function () {
-                var _baseDirectory = "",
-                    _templates = {};
-
-                function setBaseDirectory(baseDir) {
-                    _baseDirectory = baseDir;
-                }
-
-                function getBaseDirectory() {
-                    return _baseDirectory;
-                }
-
-                function setTemplates(newTemplates) {
-                    _templates = newTemplates;
-                }
-
-                function getTemplates() {
-                    return _templates;
-                }
-
-                function getTemplate(template) {
-                    return _templates[template];
-                }
-
-                function addTemplate(name, url) {
-                    _templates[name] = _baseDirectory + url;
-                }
-
-                return {
-                    setBaseDirectory: setBaseDirectory,
-                    getBaseDirectory: getBaseDirectory,
-                    setTemplates: setTemplates,
-                    getTemplates: getTemplates,
-                    getTemplate: getTemplate,
-                    addTemplate: addTemplate
-                };
-            }
-        ])
         .directive('svgRender', ['$compile', function ($compile) {
             var template = '<svg-render-inner svg="{{svg}}" h="{{h}}" w="{{w}}"></svg-render-inner>';
             return {
@@ -88,7 +49,7 @@
                 }
             };
         }])
-        .directive('svgRenderInner', ['$log', 'svgRenderFileService', function ($log, svgRenderFileService) {
+        .directive('svgRenderInner', ['$log', 'svgRenderFile', function ($log, svgRenderFile) {
             return {
                 restrict: 'E',
                 replace: true,
@@ -105,7 +66,7 @@
                     element.css(cssAttributes);
                 },
                 templateUrl: function (element, attrs) {
-                    var result = svgRenderFileService.getTemplate(attrs.svg);
+                    var result = svgRenderFile.getTemplate(attrs.svg);
 
                     if (!result) {
                         $log.error('Unfound Symbol: ' + attrs.svg);
