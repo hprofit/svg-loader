@@ -1,0 +1,25 @@
+{
+  "name": "angular-svg-render",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "~1.3.5"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.3.5"
+  },
+  "authors": [
+    "holden_profit <holdenprofit@gmail.com>"
+  ],
+  "description": "An angular directive for rendering SVG files inline.",
+  "main": "svg-render.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "angular",
+    "svg",
+    "directive"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/hprofit/svg-render"
+}

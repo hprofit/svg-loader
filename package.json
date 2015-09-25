@@ -1,0 +1,38 @@
+{
+  "name": "angular-svg-render",
+  "version": "1.0.0",
+  "description": "An angular directive for rendering SVG files inline.",
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hprofit/svg-render"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^1.7.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^1.11.2",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.10",
+    "karma-html-reporter": "^0.2.6",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "karma-ng-html2js-preprocessor": "^0.1.2",
+    "phantomjs": "^1.9.18",
+    "karma-coverage": "^0.5.2"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "keywords": [
+    "angular",
+    "svg",
+    "directive"
+  ],
+  "author": "Holden Profit <holdenprofit@gmail.com> (https://github.com/hprofit/)",
+  "license": "ISC"
+}
