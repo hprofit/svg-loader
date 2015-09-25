@@ -20,10 +20,10 @@
                     return this._templates;
                 },
                 getTemplate: function (template) {
-                    return this._templates[template];
+                    return this._baseDirectory + this._templates[template];
                 },
                 addTemplate: function (name, url) {
-                    this._templates[name] = this._baseDirectory + url;
+                    this._templates[name] = url;
                 },
                 $get: function () {
                     return this;

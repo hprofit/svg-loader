@@ -44,12 +44,15 @@ describe('SvgRender Directives', function () {
 
         it('Should set the _templates object', function () {
             var templates = {
-                "icon": "some/dir/here.html"
+                "icon": "some/dir/here.html",
+                "another": "some/other/dir.html"
             };
 
             provider.setTemplates(templates);
 
             expect(provider._templates).toEqual(templates);
+            expect(provider.getTemplate('icon')).toEqual(templates.icon);
+            expect(provider.getTemplate('another')).toEqual(templates.another);
         });
 
         it('Should return a template url', function () {
