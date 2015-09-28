@@ -3,7 +3,7 @@ language: javascript
 sudo: true
 
 before_install:
-  - sudo npm install
+  - npm install
   - bower install
 
 script: gulp test
