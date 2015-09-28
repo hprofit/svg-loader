@@ -1,6 +1,6 @@
 language: javascript
 
-sudo: true
+sudo: false
 
 before_install:
   - npm install
