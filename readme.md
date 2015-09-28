@@ -1,4 +1,4 @@
-SVG-Render 
+SVG-Render [![Build Status](https://travis-ci.org/hprofit/svg-render.svg?branch=master)](https://travis-ci.org/hprofit/svg-render)
 =========
 
 
