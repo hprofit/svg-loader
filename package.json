@@ -12,6 +12,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "bower": "~1.5.3",
     "gulp": "^3.9.0",
     "gulp-angular-templatecache": "^1.7.0",
     "gulp-concat": "^2.6.0",
