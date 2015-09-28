@@ -1,0 +1,9 @@
+language: javascript
+
+sudo: true
+
+before_install:
+  - sudo npm install
+  - bower install
+
+script: gulp test
